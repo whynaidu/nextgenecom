@@ -8,6 +8,7 @@ var cors = require("cors");
 const users = require("./routes/user");
 const product = require("./routes/product");
 const attributes = require("./routes/attributes");
+const banner = require("./routes/bannerimages");
 
 app.use(express.json());
 app.use(cors());
@@ -15,6 +16,7 @@ app.use(cors());
 app.use("/users", users);
 app.use("/products", product);
 app.use("/attributes", attributes);
+app.use("/banner", banner);
 
 app.use("*", (req, res) => {
   res.status(404).json({
