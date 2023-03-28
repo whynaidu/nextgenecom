@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 
 export default function Header() {
+
+
   return (
-    <div className='bg-white text-black w-full rounded-full h-24 p-6'>
-      dsfdf
+    <div>
+      <div className="bg-gray-600 dark:bg-white dark:text-black text-red-700 w-full rounded-full h-24 p-6">
+        dsfdf
+      </div>
     </div>
-  )
+  );
 }
