@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const Joi = require("joi");
 
 const userSchema = new mongoose.Schema({
   _id: { type: String },
@@ -7,6 +6,8 @@ const userSchema = new mongoose.Schema({
   password: { type: String },
   email: { type: String },
   createdAt: { type: String },
+  cart: [],
+  address: [],
 });
 
 const User = mongoose.model("users", userSchema);

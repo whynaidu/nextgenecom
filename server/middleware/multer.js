@@ -18,7 +18,7 @@ const productstorage = multer.diskStorage({
   },
 });
 
-const productimages = multer({ storage: productstorage });
 const trending = multer({ storage: storage });
+const productimages = multer({ storage: productstorage });
 
 module.exports = { trending, productimages };

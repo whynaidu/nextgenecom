@@ -1,6 +1,18 @@
 const mongoose = require("mongoose");
 var moment = require("moment");
 
+const attributesSchema = new mongoose.Schema(
+  {
+    color: {
+      type: String,
+    },
+    size: {
+      type: String,
+    },
+  },
+  { _id: false }
+);
+
 const ProductSchema = new mongoose.Schema(
   {
     _id: {
@@ -53,6 +65,7 @@ const ProductSchema = new mongoose.Schema(
       minlength: 2,
       maxlength: 10240,
     },
+    attributes: [attributesSchema],
   },
   { timestamps: true }
 );
