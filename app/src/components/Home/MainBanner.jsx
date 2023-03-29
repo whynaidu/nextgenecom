@@ -1,40 +1,56 @@
 import React from "react";
 import { Navbar } from "flowbite-react";
 
-
 export default function MainBanner() {
   return (
-    <div id="default-carousel" class="relative w-full" data-carousel="slide">
-      {/* <!-- Carousel wrapper --> */}
-      <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-        {/* <!-- Item 1 --> */}
+    <div id="default-carousel" class="relative w-full " data-carousel="slide">
+      <div class="relative h-[34rem] overflow-hidden rounded-lg md:h-[34rem]">
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
           <img
             src="https://images.unsplash.com/photo-1679940640486-967ee217bf8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
             class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             alt="..."
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+          <div className="absolute left-4 bottom-4 text-left">
+            <h1 className="text-xl text-white font-semibold">sfdfd</h1>
+            <p className="text-gray-300 mt-2">sfsdfsdfsdf</p>
+            <button className="text-base text-white cursor-pointer mt-2 font-semibold">
+              Shop Now &rarr;
+            </button>
+          </div>
         </div>
-        {/* <!-- Item 2 --> */}
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
           <img
             src="https://images.unsplash.com/photo-1679913286917-9eb414421eb6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
             class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             alt="..."
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+          <div className="absolute left-4 bottom-4 text-left">
+            <h1 className="text-xl text-white font-semibold">B2</h1>
+            <p className="text-gray-300 mt-2">B2</p>
+            <button className="text-base text-white cursor-pointer mt-2 font-semibold">
+              Shop Now &rarr;
+            </button>
+          </div>
         </div>
-        {/* <!-- Item 3 --> */}
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
           <img
             src="https://images.unsplash.com/photo-1679946026929-454c89c3af10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2040&q=80"
             class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             alt="..."
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+          <div className="absolute left-4 bottom-4 text-left">
+            <h1 className="text-xl text-white font-semibold">B3</h1>
+            <p className="text-gray-300 mt-2">B3</p>
+            <button className="text-base text-white cursor-pointer mt-2 font-semibold">
+              Shop Now &rarr;
+            </button>
+          </div>
         </div>
-        {/* <!-- Item 4 --> */}
-       
       </div>
-      {/* <!-- Slider indicators --> */}
       <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
         <button
           type="button"
@@ -57,7 +73,6 @@ export default function MainBanner() {
           aria-label="Slide 3"
           data-carousel-slide-to="2"
         ></button>
-       
       </div>
       {/* <!-- Slider controls --> */}
       <button

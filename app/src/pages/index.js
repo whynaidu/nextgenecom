@@ -3,9 +3,13 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Header from '@/components/header'
-import CategoriesPanel from '@/components/categoriesPanel'
-import MainBanner from '@/components/MainBanner'
-import "flowbite";
+import CategoriesPanel from '@/components/Home/categoriesPanel'
+import MainBanner from '@/components/Home/MainBanner'
+import {FeaturedProductCards} from "@/components/Home/ProductCards";
+import {ProductCards} from "@/components/Home/ProductCards";
+
+import MiddleBanner from '@/components/Home/MiddleBanner'
+import { Footer } from '@/components/footer'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -27,6 +31,10 @@ export default function Home() {
         <Header />
         <CategoriesPanel />
         <MainBanner />
+        <FeaturedProductCards />
+        <MiddleBanner />
+        <ProductCards />
+        <Footer/>
       </main>
     </>
   );

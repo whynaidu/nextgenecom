@@ -11,3 +11,8 @@ html{
     color-scheme: dark;
   }
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
