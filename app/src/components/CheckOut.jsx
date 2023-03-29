@@ -52,7 +52,7 @@ export const CheckOut = () => {
         <form className="mt-6 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-6 xl:gap-x-6">
           <section
             aria-labelledby="cart-heading"
-            className="lg:col-span-8 bg-black dark:bg-white rounded-xl"
+            className="lg:col-span-8 bg-black dark:bg-white rounded-xl p-3"
           >
             <h2 id="cart-heading" className="sr-only">
               Items in your shopping cart
@@ -191,8 +191,13 @@ export const CheckOut = () => {
                   </dd>
                 </div>
               </dl>
-              <div className="px-6 pb-4 font-medium text-green-700 dark:text-green-400">
-                You will save ₹ 3,431 on this order
+              <div className="px-6 pb-4 font-medium text-green-700 dark:text-green-400 flex">
+                              You will save ₹ 3,431 on this order
+                              <div className="flex justify-end w-full">
+                                  <button className="w-fir bg-green-500  text-white rounded-lg lg:px-8 px-2">
+                                      Proceed to Checkout
+                                  </button>
+                              </div>
               </div>
             </div>
           </section>

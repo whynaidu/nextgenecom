@@ -5,7 +5,7 @@ import Logo from "../assets/photo-1605405748313-a416a1b84491.jpg"
 export const Footer = () => {
   return (
     <>
-      <footer className=" px-10 py-10 rounded-xl bg-white">
+      <footer className="mt-3 px-10 py-10 rounded-xl bg-white">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           <div className="mt-8 lg:mt-0 flex items-center">
             <div className="pr-6">
