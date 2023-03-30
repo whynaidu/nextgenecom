@@ -4,7 +4,7 @@ import { Navbar } from "flowbite-react";
 export default function MainBanner() {
   return (
     <div id="default-carousel" class="relative w-full " data-carousel="slide">
-      <div class="relative h-[34rem] overflow-hidden rounded-lg md:h-[34rem]">
+      <div class="relative h-[24rem] overflow-hidden lg:h-[34-rem] rounded-lg md:h-[34rem]">
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
           <img
             src="https://images.unsplash.com/photo-1679940640486-967ee217bf8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"

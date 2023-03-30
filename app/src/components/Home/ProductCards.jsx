@@ -78,11 +78,11 @@ const Data = [
 const FeaturedProductCards = () => {
   const firstTwoData = Data.slice(0, 4);
   return (
-    <div className=" mt-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-5">
+    <div className="mt-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3">
       {firstTwoData.map((item) => (
         <div
           key={item.id}
-          className="col-span-4 flex flex-col items-center text-center lg:col-span-1 lg:items-start lg:text-left"
+          className="flex flex-col items-center text-center lg:col-span-1 lg:items-start lg:text-left"
         >
           <div
             className="flex h-full w-full flex-col justify-end rounded-md relative overflow-hidden"
@@ -99,9 +99,13 @@ const FeaturedProductCards = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
             <div className="absolute left-4 bottom-4 text-left">
-              <h1 className="text-xl text-white font-semibold">{item.title}</h1>
-              <p className="text-gray-300 mt-2">{item.description}</p>
-              <button className="text-base text-white cursor-pointer mt-2 font-semibold">
+              <h1 className="lg:text-xl text-md text-white font-semibold">
+                {item.title}
+              </h1>
+              <p className="hidden lg:block lg:text-xl text-md text-gray-300 mt-2">
+                {item.description}
+              </p>
+              <button className="text-sm text-white cursor-pointer mt-2 font-semibold">
                 Shop Now &rarr;
               </button>
             </div>
@@ -116,11 +120,11 @@ const ProductCards = () => {
   const firstTwoData = Data.slice(0, 8);
 
   return (
-    <div className=" mt-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-5">
+    <div className=" mt-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-5">
       {firstTwoData.map((item) => (
         <div
           key={item.id}
-          className="col-span-4 flex flex-col items-center text-center lg:col-span-1 lg:items-start lg:text-left"
+          className="flex flex-col items-center text-center lg:col-span-1 lg:items-start lg:text-left"
         >
           <div
             className="flex h-full w-full flex-col justify-end rounded-md relative overflow-hidden"
@@ -138,8 +142,10 @@ const ProductCards = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
             <div className="absolute left-4 bottom-4 text-left">
               <h1 className="text-xl text-white font-semibold">{item.title}</h1>
-              <p className="text-gray-300 mt-2">{item.description}</p>
-              <button className="text-base text-white cursor-pointer mt-2 font-semibold">
+              <p className="hidden lg:block lg:text-xl text-md text-gray-300 mt-2">
+                {item.description}
+              </p>
+              <button className="text-sm text-white cursor-pointer mt-2 font-semibold">
                 Shop Now &rarr;
               </button>
             </div>
