@@ -87,6 +87,22 @@ router.post("/addtocart", async (req, res) => {
   }
 });
 
+//when delete button is clicked inside the cart
+
+router.post("/removecart/items", async (req, res) => {
+  const { customerid, productid } = req.body;
+  try {
+    const user = await User.find({ _id: customerid });
+    // const user = await User.updateOne(
+    //   { _id: customerid },
+    //   { $push: { cart: product[0] } }
+    // );
+    res.status(200).send(user[0].cart.findand(productid));
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 //my cart clicked
 
 router.post("/mycart", async (req, res) => {
