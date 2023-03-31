@@ -9,6 +9,7 @@ const moment = require("moment");
 const generateAuthToken = require("../common/auth");
 const auth = require("../middleware/auth");
 const { validateEndUser, validateaddress } = require("../middleware/validator");
+const { profileimages } = require("../middleware/multer");
 
 //user register api
 
@@ -92,14 +93,14 @@ router.post("/addtocart", async (req, res) => {
 router.post("/removecart/items", async (req, res) => {
   const { customerid, productid } = req.body;
   try {
-    const user = await User.find({ _id: customerid });
-    // const user = await User.updateOne(
-    //   { _id: customerid },
-    //   { $push: { cart: product[0] } }
-    // );
-    res.status(200).send(user[0].cart.findand(productid));
+    const user = await User.updateOne(
+      { _id: customerid },
+      { $pull: { cart: { _id: productid } } }
+    );
+    console.log(user);
+    res.status(200).end("Product Deleted Successfully ");
   } catch (err) {
-    console.log(err);
+    console.log("catch erroe" + err);
   }
 });
 
@@ -129,7 +130,7 @@ router.post("/checkout", async (req, res) => {
 
 //checkout address form
 
-router.post("/checkout/address/:id", async (req, res) => {
+router.post("/shipping/address/:id", async (req, res) => {
   const { id } = req.params;
   const response = await validateaddress(req.body);
   if (response.error) {
@@ -141,6 +142,63 @@ router.post("/checkout/address/:id", async (req, res) => {
       { $push: { address: req.body } }
     );
     res.status(200).send(user);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+//user billing address upload
+
+router.post("/billing/address/:id", async (req, res) => {
+  const { id } = req.params;
+  const response = await validateaddress(req.body);
+  if (response.error) {
+    return res.status(400).send(response.errorMessage);
+  }
+  try {
+    const founduser = await User.find({ _id: id });
+
+    if (founduser[0].billingaddress.length === 1) {
+      return res.status(400).send("Already have Billing address");
+    } else {
+      const user = await User.updateOne(
+        { _id: id },
+        { $push: { billingaddress: req.body } }
+      );
+      res.status(200).send("Billing Address Updated Successfully");
+    }
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+//profile upload api
+
+router.post(
+  "/profile/image",
+  profileimages.single("profileimg"),
+  async (req, res) => {
+    const content = req.file.filename;
+    const { customerid } = req.body;
+    if (!content || !customerid)
+      return res.status(500).send("Please provide id and picture");
+    let user = await User.find({ _id: customerid });
+    if (!user) {
+      return res.send("Can't find user id");
+    }
+    await User.updateOne({ _id: customerid }, { picture: content });
+    user = await User.findById(customerid);
+    res.send(user);
+  }
+);
+
+//get user data
+
+router.get("/info/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const founduser = await User.find({ _id: id });
+    res.status(200).send(founduser);
   } catch (err) {
     console.log(err);
   }

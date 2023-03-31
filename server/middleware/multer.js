@@ -18,7 +18,17 @@ const productstorage = multer.diskStorage({
   },
 });
 
+const profilestorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "profileimages");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+
 const trending = multer({ storage: storage });
 const productimages = multer({ storage: productstorage });
+const profileimages = multer({ storage: profilestorage });
 
-module.exports = { trending, productimages };
+module.exports = { trending, productimages, profileimages };
